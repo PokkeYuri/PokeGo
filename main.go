@@ -16,6 +16,8 @@ var cache pokecache.Cache
 
 var pokedexe pokedex.Pokedex
 
+var cliParameters string
+
 type cliCommand struct {
 	name        string
 	description string
@@ -68,8 +70,6 @@ func getCommands() map[string]cliCommand {
 		},
 	}
 }
-
-var cliParameters string
 
 func commandMap() error {
 	areas := pokeapi.GetLocationAreaList(uriParameters.nextMapUri, &cache)
