@@ -3,14 +3,18 @@ package main
 import (
 	"PokeGo/internal/pokeapi"
 	"PokeGo/internal/pokecache"
+	"PokeGo/internal/pokedex"
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 	"time"
 )
 
 var cache pokecache.Cache
+
+var pokedexe pokedex.Pokedex
 
 type cliCommand struct {
 	name        string
@@ -26,7 +30,7 @@ var uriParameters = Parameteters{
 	nextMapUri:      "https://pokeapi.co/api/v2/location-area?offset=0&limit=20",
 	prevMapUri:      "",
 	locationAreaUri: "https://pokeapi.co/api/v2/location-area/",
-	pokemonUri:      "https://pokeapi.co/api/v2/ability/",
+	pokemonUri:      "https://pokeapi.co/api/v2/pokemon/",
 }
 
 func getCommands() map[string]cliCommand {
@@ -121,10 +125,20 @@ func commandExplore() error {
 
 func commandCatch() error {
 	uri := uriParameters.pokemonUri + cliParameters + "/"
-	_, err := pokeapi.GetLocationArea(uri, &cache)
+	pokemon, err := pokeapi.GetPokemon(uri, &cache)
 	if err != nil {
 		fmt.Println("Pokemon not found!")
 		return nil
+	}
+	fmt.Println("Throwing a Pokeball at " + pokemon.Name + "...")
+
+	//TODO MMB Besseren Algorythmus finden
+	x := rand.Intn(50)
+	if x > 20 {
+		pokedexe.Add(pokemon)
+		fmt.Println(pokemon.Name + " was caught!")
+	} else {
+		fmt.Println(pokemon.Name + " escaped!")
 	}
 
 	return nil
@@ -137,8 +151,11 @@ func commandExit() error {
 
 func main() {
 	cache = pokecache.NewCache(time.Minute)
+	pokedexe = pokedex.NewPokedex()
 	scanner := bufio.NewScanner(os.Stdin)
 
+	cliParameters = "pikachu"
+	commandCatch()
 	for {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
