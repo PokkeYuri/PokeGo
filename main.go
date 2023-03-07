@@ -196,7 +196,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
-		fmt.Print("Pokedex > ")
+		fmt.Print("PokeGo > ")
 		scanner.Scan()
 		inputText := scanner.Text()
 		textArr := strings.Split(inputText, " ")
