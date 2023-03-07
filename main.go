@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -67,6 +68,16 @@ func getCommands() map[string]cliCommand {
 			name:        "catch <pokemon-name>",
 			description: "Catch Pokemon and adds to Pokedex",
 			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect <pokemon-name>",
+			description: "Inspects a Pokemon of a given name",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "Lists all Pokemons who where catched",
+			callback:    commandPokedex,
 		},
 	}
 }
@@ -132,7 +143,7 @@ func commandCatch() error {
 	}
 	fmt.Println("Throwing a Pokeball at " + pokemon.Name + "...")
 
-	//TODO MMB Besseren Algorythmus finden
+	//TODO MMB Besseren Algorythmus finden mit Pokemon.BaseExperience
 	x := rand.Intn(50)
 	if x > 20 {
 		pokedexe.Add(pokemon)
@@ -141,6 +152,36 @@ func commandCatch() error {
 		fmt.Println(pokemon.Name + " escaped!")
 	}
 
+	return nil
+}
+
+func commandInspect() error {
+	pokemon, ok := pokedexe.Get(cliParameters)
+	if !ok {
+		fmt.Println("you have not caught that pokemon!")
+		return nil
+	} else {
+		fmt.Println("Name: " + pokemon.Name)
+		fmt.Println("Height: " + strconv.Itoa(pokemon.Height))
+		fmt.Println("Weight: " + strconv.Itoa(pokemon.Height))
+		fmt.Println("Stats:")
+		for i := 0; i < len(pokemon.Stats); i++ {
+			fmt.Println("  -" + pokemon.Stats[i].Stat.Name + ": " + strconv.Itoa(pokemon.Stats[i].BaseStat))
+		}
+		fmt.Println("Types:")
+		for i := 0; i < len(pokemon.Types); i++ {
+			fmt.Println("  -" + pokemon.Types[i].Type.Name)
+		}
+	}
+	return nil
+}
+
+func commandPokedex() error {
+	pokemonMap := pokedexe.GetAll()
+	fmt.Println("Your Pokedex:")
+	for k, _ := range pokemonMap {
+		fmt.Println("  -" + k)
+	}
 	return nil
 }
 
@@ -154,8 +195,6 @@ func main() {
 	pokedexe = pokedex.NewPokedex()
 	scanner := bufio.NewScanner(os.Stdin)
 
-	cliParameters = "pikachu"
-	commandCatch()
 	for {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()

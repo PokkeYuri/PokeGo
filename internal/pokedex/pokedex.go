@@ -7,18 +7,30 @@ import (
 
 type Pokedex struct {
 	mu       *sync.Mutex
-	Counters map[string]pokeapi.Pokemon
+	counters map[string]pokeapi.Pokemon
 }
 
 func (pd Pokedex) Add(p pokeapi.Pokemon) {
 	pd.mu.Lock()
-	defer pd.mu.Unlock()
-	pd.Counters[p.Name] = p
+	pd.counters[p.Name] = p
+	pd.mu.Unlock()
 }
 
+func (pd Pokedex) Get(name string) (pokeapi.Pokemon, bool) {
+	pd.mu.Lock()
+	poke, ok := pd.counters[name]
+	pd.mu.Unlock()
+	return poke, ok
+}
+
+func (pd Pokedex) GetAll() map[string]pokeapi.Pokemon {
+	pd.mu.Lock()
+	defer pd.mu.Unlock()
+	return pd.counters
+}
 func NewPokedex() Pokedex {
 	return Pokedex{
 		mu:       &sync.Mutex{},
-		Counters: make(map[string]pokeapi.Pokemon),
+		counters: make(map[string]pokeapi.Pokemon),
 	}
 }
