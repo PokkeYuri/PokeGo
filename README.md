@@ -8,6 +8,9 @@ Dive into the world of Pokemon with PokeGo, a fun and simple CLI game written in
 - **Catch and Release Pokemons**: Use your skills to catch Pokemon and add them to your Pokedex. You can also release them if you choose.
 - **Build Your Pokedex**: Keep track of all the Pokemon you've caught and learn more about each one.
 
+### Prerequisites
+- Go 1.20 or later
+
 ## Installation
 To get started with PokeGo, clone this repository and build the project:
 1. `git clone https://github.com/PokkeYuri/PokeGo.git`
