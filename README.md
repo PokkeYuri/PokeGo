@@ -11,20 +11,19 @@ It uses the [PokéAPI](https://pokeapi.co/) for fetching data about Pokémon.
 - **Catch and Release Pokemons**: Use your skills to catch Pokemon and add them to your Pokedex.
 - **Build Your Pokedex**: Keep track of all the Pokemon you've caught and learn more about each one.
 
-## Installation
+## Installation & Usage
 
 To get started with PokeGo, clone this repository and build the project:
 1. `git clone https://github.com/PokkeYuri/PokeGo.git`
 2. `cd PokeGo`
 3. `go build`
 
-### Prerequisites
-- Go 1.20 or later
-
-## Usage
 To start your adventure, run the following command: 
 - LINUX: `./PokeGo`
 - WINDOWS: `./PokeGo.exe`
+- 
+### Prerequisites
+- Go 1.20 or later
 
 ## Commands
 - `help`: Displays a help message with available commands.
