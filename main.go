@@ -136,6 +136,13 @@ func commandExplore() error {
 
 func commandCatch() error {
 	uri := uriParameters.pokemonUri + cliParameters + "/"
+
+	_, alreadyOwned := pokedexe.Get(cliParameters)
+	if alreadyOwned {
+		fmt.Println("Pokemon already cought!")
+		return nil
+	}
+
 	pokemon, err := pokeapi.GetPokemon(uri, &cache)
 	if err != nil {
 		fmt.Println("Pokemon not found!")
@@ -143,7 +150,7 @@ func commandCatch() error {
 	}
 	fmt.Println("Throwing a Pokeball at " + pokemon.Name + "...")
 
-	//TODO MMB Besseren Algorythmus finden mit Pokemon.BaseExperience
+	//TODO Implement better algorythm with Pokemon.BaseExperience?
 	x := rand.Intn(50)
 	if x > 20 {
 		pokedexe.Add(pokemon)

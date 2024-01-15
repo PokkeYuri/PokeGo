@@ -336,9 +336,9 @@ func GetLocationAreaList(uri string, c *pokecache.Cache) LocationAreaList {
 		data = HttpGet(uri)
 		c.Add(uri, data)
 	}
+
 	locationAreasList := LocationAreaList{}
 	err := json.Unmarshal(data, &locationAreasList)
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -359,7 +359,7 @@ func GetLocationArea(uri string, c *pokecache.Cache) (LocationArea, error) {
 	err := json.Unmarshal(data, &locationArea)
 
 	if err != nil {
-		//log.Fatal(err)
+		log.Fatal(err)
 	}
 	return locationArea, err
 }
@@ -378,7 +378,7 @@ func GetPokemon(uri string, c *pokecache.Cache) (Pokemon, error) {
 	err := json.Unmarshal(data, &pokeAnimal)
 
 	if err != nil {
-
+		log.Fatal(err)
 	}
 	return pokeAnimal, err
 }
@@ -388,14 +388,14 @@ func HttpGet(uri string) []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	body, err := io.ReadAll(res.Body)
 	res.Body.Close()
 	if res.StatusCode > 299 {
-		//log.Fatalf("Response failed with status code: %d and\nbody: %s\n", res.StatusCode, body)
+		log.Fatalf("Response failed with status code: %d and\nbody: %s\n", res.StatusCode, body)
 	}
 	if err != nil {
-		//log.Fatal(err)
+		log.Fatal(err)
 	}
-
 	return body
 }

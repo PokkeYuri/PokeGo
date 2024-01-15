@@ -28,6 +28,7 @@ func (pd Pokedex) GetAll() map[string]pokeapi.Pokemon {
 	defer pd.mu.Unlock()
 	return pd.counters
 }
+
 func NewPokedex() Pokedex {
 	return Pokedex{
 		mu:       &sync.Mutex{},
