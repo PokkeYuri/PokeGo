@@ -21,7 +21,7 @@ To get started with PokeGo, clone this repository and build the project:
 To start your adventure, run the following command: 
 - LINUX: `./PokeGo`
 - WINDOWS: `./PokeGo.exe`
-- 
+
 ### Prerequisites
 - Go 1.20 or later
 
