@@ -10,13 +10,13 @@ Dive into the world of Pokemon with PokeGo, a fun and simple CLI game written in
 
 ## Installation
 
-### Prerequisites
-- Go 1.20 or later
-
 To get started with PokeGo, clone this repository and build the project:
 1. `git clone https://github.com/PokkeYuri/PokeGo.git`
 2. `cd PokeGo`
 3. `go build`
+
+### Prerequisites
+- Go 1.20 or later
 
 ## Usage
 To start your adventure, run the following command: (linux)`./PokeGo` or (windows)`./PokeGo.exe`
