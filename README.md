@@ -15,7 +15,7 @@ To get started with PokeGo, clone this repository and build the project:
 3. `go build`
 
 ## Usage
-To start your adventure, run the following command: './PokeGo'
+To start your adventure, run the following command: `./PokeGo` or `PokeGo.exe`
 
 ## Commands
 - `help`: Displays a help message with available commands.
