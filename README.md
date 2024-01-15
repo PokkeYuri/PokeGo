@@ -1,9 +1,10 @@
 # PokeGo: A CLI Pokemon Adventure
 
 ## Overview
-Dive into the world of Pokemon with PokeGo, a fun and simple CLI game written in Go! Explore different locations, catch a variety of Pokemon, and build your own Pokedex, all from your terminal. It uses the [PokéAPI](https://pokeapi.co/) for fetching data about Pokémon.
+Dive into the world of Pokemon with PokeGo, a fun and simple CLI game written in Go! Explore different locations, catch a variety of Pokemon, and build your own Pokedex, all from your terminal.
 
 This project serves as an exercise to explore and practice programming in Go. 
+It uses the [PokéAPI](https://pokeapi.co/) for fetching data about Pokémon.
 
 ## Features
 - **Explore Various Locations**: Travel through numerous areas in the Pokemon world to discover and catch Pokemon.
