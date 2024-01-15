@@ -27,8 +27,5 @@ To start your adventure, run the following command: './PokeGo'
 - `inspect <pokemon-name>`: Inspect a caught Pokemon's details.
 - `pokedex`: View all caught Pokemons in your Pokedex.
 
-## Contribute
-Feel free to fork this repository, submit pull requests, or report bugs and suggestions in the issues section.
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
