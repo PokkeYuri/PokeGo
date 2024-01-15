@@ -35,3 +35,6 @@ To start your adventure, run the following command:
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## Disclaimer
+"Pokémon" is a trademark of Nintendo, Creatures Inc, and GAME FREAK inc. This project is a fan-made game and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Pokémon Company, Nintendo, Creatures, or Game Freak, or any of their subsidiaries or affiliates. The official Pokémon website can be found at [https://www.pokemon.com](https://www.pokemon.com). The names "Nintendo", "Pokémon", and related names, marks, emblems, and images are registered trademarks of their respective owners.
