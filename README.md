@@ -7,7 +7,7 @@ It uses the [PokéAPI](https://pokeapi.co/) for fetching data about Pokémon.
 
 ## Features
 - **Explore Various Locations**: Travel through numerous areas in the Pokemon world to discover and catch Pokemon.
-- **Catch and Release Pokemons**: Use your skills to catch Pokemon and add them to your Pokedex.
+- **Catch Pokemons**: Use your skills to catch Pokemon and add them to your Pokedex.
 - **Build Your Pokedex**: Keep track of all the Pokemon you've caught and learn more about each one.
 
 ## Installation & Usage
